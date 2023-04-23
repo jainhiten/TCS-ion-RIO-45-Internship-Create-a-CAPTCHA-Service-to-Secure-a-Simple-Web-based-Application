@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title> Login Form </title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body onload="cap()">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form action="#">
+        <h3> Login </h3>
+
+        <label for="username">Username</label>
+        <input type="text" placeholder="Email or Phone" id="username">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password">
+        <!--  -->
+        <span><input class="preview" type="text" name="Name" size="15" id="capt"></span>
+        <span><i class="fa fa-refresh reload" aria-hidden="true" onclick="cap()"></i></span>
+        <input type="text" id="textinput" placeholder="Enter Captcha">
+        <!--  -->
+        <br>
+        <br>
+        <button class="form_button" onclick="validcap()"> LOGIN </button>
+        <div class="social">
+            <div class="go"><i class="fab fa-google"></i> Google</div>
+            <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+        </div>
+
+        <div class="hr"></div>
+        <div class="foot-lnk">
+            <a href="#forgot"> Forgot Password? </a>
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+        function cap() {
+            var alpha = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V'
+                , 'W', 'X', 'Y', 'Z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '+'];
+            var a = alpha[Math.floor(Math.random() * 71)];
+            var b = alpha[Math.floor(Math.random() * 71)];
+            var c = alpha[Math.floor(Math.random() * 71)];
+            var d = alpha[Math.floor(Math.random() * 71)];
+            var e = alpha[Math.floor(Math.random() * 71)];
+            var f = alpha[Math.floor(Math.random() * 71)];
+
+            var final = a + b + c + d + e + f;
+            document.getElementById("capt").value = final;
+        }
+        function validcap() {
+            var stg1 = document.getElementById('capt').value;
+            var stg2 = document.getElementById('textinput').value;
+            if (stg1 == stg2) {
+                alert("Form is validated Succesfully");
+                return true;
+            } else {
+                alert("Please enter a valid captcha");
+                return false;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
